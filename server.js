@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 app.get('/article-one', function(req, res){
     res.send('Yo Broda, Whats up !!');
 });
-app.get('/article-one', function(req, res){
+app.get('/article-two', function(req, res){
     res.send('This is the second page bud');
 });
 
