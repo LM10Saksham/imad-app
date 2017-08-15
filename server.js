@@ -66,6 +66,13 @@ app.get('/counter', function (req, res) {
   res.send(counter.toString());
 });
 
+app.get('/submit_name/:name', function(req, res){
+    var name = req.params.name;
+    
+    names.push(name);
+    
+    res.send(JSON.stringify(names));
+});
 
 
 app.get('/article-one', function(req, res){
