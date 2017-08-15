@@ -12,7 +12,7 @@ button.onclick = function(){
             }
         }
     };
-    request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/counter');
+    request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/counter',true);
 };
 
 /*var nameinput = document.getElementById('name');
