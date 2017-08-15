@@ -1,6 +1,6 @@
 console.log('Loaded!');
-var button = document.getElementByID('counter');
-var span = document.getElementByID('count');
+var button = document.getElementById('counter');
+var span = document.getElementById('count');
 button.onclick = function(){
     span = span + 1;
 };
