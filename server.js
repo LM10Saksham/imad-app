@@ -65,11 +65,11 @@ app.get('/counter', function (req, res) {
     counter = counter +1;
   res.send(counter.toString());
 });
-
-app.get('/submit_name/:name', function(req, res){
+var names =[];
+app.get('/submit-name/:name', function(req, res){
     var name = req.params.name;
     
-    names.push(name);
+    names.push(names);
     
     res.send(JSON.stringify(names));
 });
