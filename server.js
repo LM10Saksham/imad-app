@@ -66,7 +66,7 @@ app.get('/counter', function (req, res) {
     counter = counter +1;
   res.send(counter.toString());
 });
-/*var names =[];
+var names =[];
 app.get('/submit-name/:name', function(req, res){
     var name = req.query.name;
     
@@ -75,7 +75,7 @@ app.get('/submit-name/:name', function(req, res){
     res.send(JSON.stringify(names));
 });
 
-*/
+
 app.get('/article-one', function(req, res){
     res.send(createTemplate(ArticleOne));
 });
