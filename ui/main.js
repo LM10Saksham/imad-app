@@ -22,7 +22,7 @@ var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
-        if(request.readyState === XMLHttpReques.DONE){
+        if(request.readyState === XMLHttpRequest.DONE){
             if(request.status == 200){
                 var names = request.responseText;
                 names = JSON.parse(names);
@@ -36,4 +36,5 @@ submit.onclick = function(){
         }
     };
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/submit_name?name='+name, true);
+    request.send(null);
 };
