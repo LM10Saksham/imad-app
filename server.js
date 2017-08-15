@@ -38,18 +38,18 @@ var htmlTemplate = `
     <body>
         <div class='container'>
     <div>    
-            <a href = "/">Home</a>
+        <a href = "/">Home</a>
         </div>
         <hr/>
         <div>
-        date
+        ${date}
         </div>
         
         <h3>
-        heading
+        ${heading}
         </h3>
         <div>
-            content
+            ${content}
         </div>
     </div>        
     </body>
