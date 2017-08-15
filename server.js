@@ -21,7 +21,7 @@ app.use(morgan('combined'));
 };
 
 function createTemplate(data){
-var title = data.title;
+var title = ArticleOne.title;
 var date = data.date;
 var heading = data.heading;
 var content = data.content;
