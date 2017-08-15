@@ -1,4 +1,3 @@
-console.log('Loaded!');
 var button = document.getElementById('counter');
 var span = document.getElementById('count');
 
@@ -17,7 +16,7 @@ button.onclick = function(){
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/counter');
 };
 
-var nameinput = document.getElementById('name');
+/*var nameinput = document.getElementById('name');
 var name = nameinput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
@@ -37,4 +36,4 @@ submit.onclick = function(){
         }
     };
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/submit_name?name='+name, true);
-};
+};*/
