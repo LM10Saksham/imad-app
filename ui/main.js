@@ -1,9 +1,19 @@
 console.log('Loaded!');
 var button = document.getElementById('counter');
 var span = document.getElementById('count');
-var counter = 0;
+
 button.onclick = function(){
-    counter = counter + 1;
-    span.innerHTML = counter;
-};
+    var request = new XMLHttpRequest();
     
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpReques.DONE){
+            if(request.status == 200){
+                var counter = request.responseText;
+                var span = document.getElementById('count');
+                span.innerHTML = counter;
+            }
+        }
+    };
+    request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/counter');
+};
+
