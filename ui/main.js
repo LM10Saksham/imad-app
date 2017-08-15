@@ -16,7 +16,7 @@ button.onclick = function(){
     request.send(null);
 };
 
-/*var nameinput = document.getElementById('name');
+var nameinput = document.getElementById('name');
 var name = nameinput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
@@ -36,4 +36,4 @@ submit.onclick = function(){
         }
     };
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/submit_name?name='+name, true);
-};*/
+};
