@@ -39,7 +39,7 @@ submit.onclick = function(){
 };*/
 var element  = document.getElementById('change');
 element.onclick = function() {
-    for(moveRight = 0; moveRight<1000; moveRight++){
+    for(moveRight = 0; moveRight<100; moveRight++){
         
     
     element.style.marginLeft = moveRight;
