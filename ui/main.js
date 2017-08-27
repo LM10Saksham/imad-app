@@ -43,7 +43,7 @@ img.onclick = function() {
     for(moveRight; i<1000; i++){
         
     
-    img.style.marginLeft = moveright+10;
+    img.style.marginLeft = moveRight+10;
     
     }
     
