@@ -38,9 +38,8 @@ submit.onclick = function(){
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/submit-name?name='+name, true);
 };*/
 var element  = document.getElementById('change');
-var moveRight = 0;
 element.onclick = function() {
-    for(moveRight; moveRight<1000; moveRight++){
+    for(moveRight = 0; moveRight<1000; moveRight++){
         
     
     element.style.marginLeft = moveRight+10;
