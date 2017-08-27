@@ -37,7 +37,7 @@ submit.onclick = function(){
     };
     request.open('GET', 'http://sakshambarcelona.imad.hasura-app.io/submit-name?name='+name, true);
 };*/
-var element  = document.getElementById('changes');
+var element  = document.getElementById('change');
 var moveRight = 0;
 img.onclick = function() {
     for(moveRight; i<1000; i++){
