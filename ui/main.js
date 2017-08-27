@@ -39,7 +39,7 @@ submit.onclick = function(){
 };*/
 var element  = document.getElementById('change');
 var moveRight = 0;
-img.onclick = function() {
+element.onclick = function() {
     for(moveRight; i<1000; i++){
         
     
