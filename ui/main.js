@@ -42,7 +42,7 @@ element.onclick = function() {
     for(moveRight = 0; moveRight<1000; moveRight++){
         
     
-    element.style.marginLeft = moveRight+10;
+    element.style.marginLeft = moveRight;
     
     }
     
