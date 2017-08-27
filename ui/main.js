@@ -40,7 +40,7 @@ submit.onclick = function(){
 var element  = document.getElementById('change');
 var moveRight = 0;
 element.onclick = function() {
-    for(moveRight; i<1000; i++){
+    for(moveRight; moveRight<1000; moveRight++){
         
     
     img.style.marginLeft = moveRight+10;
