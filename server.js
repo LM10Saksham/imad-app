@@ -19,20 +19,7 @@ app.use(morgan('combined'));
             </p>`
 
 };
- var article-two  = {
-    title : 'Article-one',
-    heading : 'BIO',
-    date : '12 August, 2017',
-    content : `<p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-            <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-             <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>`
-};
+
 
 function createTemplate(data){
 var title = data.title;
@@ -75,7 +62,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articles = ['article-one', 'artcile-two'];
+var articles = ['article-one'];
 
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
