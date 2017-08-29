@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
- var ArticleOne  = {
+ var article-one ={
     title : 'Article-one',
     heading : 'BIO',
     date : '12 August, 2017',
@@ -17,8 +17,8 @@ app.use(morgan('combined'));
              <p>
                 Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
             </p>`
-
-};
+     
+ };
 
 
 function createTemplate(data){
@@ -62,16 +62,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articles = ['ArticleOne'];
+var articles = ['article-one'];
 
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
     res.send(createTemplate(articles[articlename]));
-    
 });
-
-
-
 
 var counter =0;
 app.get('/counter', function (req, res) {
