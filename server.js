@@ -78,7 +78,7 @@ var articles = ['article-one', 'artcile-two'];
 
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
-    res.send(createTemplate(articles(articlename)));
+    res.send(createTemplate(articles[articlename]));
 });
 
 app.get('/ui/main.js', function (req, res) {
