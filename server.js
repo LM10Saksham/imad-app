@@ -32,7 +32,6 @@ app.use(morgan('combined'));
              <p>
                 Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
             </p>`
-
 };
 
 function createTemplate(data){
