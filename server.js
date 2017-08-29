@@ -54,7 +54,7 @@ var htmlTemplate = `
         </div>
     </div>        
     </body>
-   ;`
+   `;
    return htmlTemplate;
 }
 
@@ -64,9 +64,9 @@ app.get('/', function (req, res) {
 
 var articles = ['ArticleOne'];
 
-app.get('/:articlename', function(req, res){
+app.get('/article-one', function(req, res){
     var articlename = req.params.articlename;
-    res.send(createTemplate(articles[articlename]));
+    res.send(createTemplate(ArticleOne));
 });
 
 
