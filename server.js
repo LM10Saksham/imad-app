@@ -19,6 +19,21 @@ app.use(morgan('combined'));
             </p>`
 
 };
+ var article-two  = {
+    title : 'Article-one',
+    heading : 'BIO',
+    date : '12 August, 2017',
+    content : `<p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+            <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+             <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>`
+
+};
 
 function createTemplate(data){
 var title = data.title;
