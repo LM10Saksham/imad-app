@@ -85,12 +85,6 @@ app.get('/submit-name', function(req, res){
     
     res.send(JSON.stringify(names));
 });
-var articles = ['ArticleOne'];
-
-app.get('/:articlename', function(req, res){
-    var articlename = req.params.articlename;
-    res.send(createTemplate(articles[articlename]));
-});
 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
