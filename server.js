@@ -74,13 +74,10 @@ app.get('/submit-name', function(req, res){
     
     res.send(JSON.stringify(names));
 });
+var articles = ['article-one', 'artcile-two'];
 
-
-app.get('/article-one', function(req, res){
-    res.send(createTemplate(ArticleOne));
-});
-app.get('/article-two', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+app.get('/:articlename', function(req, res){
+    res.send(createTemplate(articles(articlename)));
 });
 
 app.get('/ui/main.js', function (req, res) {
