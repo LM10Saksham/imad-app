@@ -77,7 +77,7 @@ app.get('/submit-name', function(req, res){
 var articles = ['article-one', 'artcile-two'];
 
 app.get('/:articlename', function(req, res){
-    var articename = req.params.articlename;
+    var articlename = req.params.articlename;
     res.send(createTemplate(articles(articlename)));
 });
 
