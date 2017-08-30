@@ -43,7 +43,7 @@ var htmlTemplate = `
    `;
    return htmlTemplate;
 }
-var articles = { 'articleone' : {
+var articles = { 'article-one' : {
     title : 'Article-one',
     heading : 'BIO',
     date : '12 August, 2017',
