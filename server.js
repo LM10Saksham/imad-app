@@ -1,8 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var app = express();
-app.use(morgan('combined'));
 var Pool = require('pg').Pool;
 var config = {
     user : 'sakshambarcelona',
@@ -11,10 +9,24 @@ var config = {
     port :'5432',
     password : process.env.DB.PASSWORD
 };
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-function createTemplate(data){
+var app = express();
+app.use(morgan('combined'));
+var articles = { 'article-one' : {
+    title : 'Article-one',
+    heading : 'BIO',
+    date : '12 August, 2017',
+    content : `<p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+            <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+             <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>`
+     
+ }};
+ function createTemplate(data){
 var title = data.title;
 var date = data.date;
 var heading = data.heading;
@@ -50,26 +62,10 @@ var htmlTemplate = `
    `;
    return htmlTemplate;
 }
-var articles = { 'article-one' : {
-    title : 'Article-one',
-    heading : 'BIO',
-    date : '12 August, 2017',
-    content : `<p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-            <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-             <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>`
-     
- }};
-app.get('/:articlename', function(req, res){
-    var articlename = req.params.articlename;
-    res.send(createTemplate(articles[articlename]));
-});
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 
 
 var Pool = new Pool(config);
@@ -82,6 +78,11 @@ app.get('/db-test', function (req, res){
             res.send(JSON.stringify(result));
         }
     });
+});
+
+app.get('/:articlename', function(req, res){
+    var articlename = req.params.articlename;
+    res.send(createTemplate(articles[articlename]));
 });
 var counter =0;
 app.get('/counter', function (req, res) {
