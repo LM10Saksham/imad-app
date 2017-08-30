@@ -11,7 +11,9 @@ var config = {
     port :'5432',
     password : process.env.DB.PASSWORD
 };
-
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 function createTemplate(data){
 var title = data.title;
 var date = data.date;
@@ -68,9 +70,7 @@ app.get('/:articlename', function(req, res){
     res.send(createTemplate(articles[articlename]));
 });
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+
 
 var Pool = new Pool(config);
 app.get('/db-test', function (req, res){
