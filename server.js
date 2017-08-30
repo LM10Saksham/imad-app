@@ -4,21 +4,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
- var articleone ={
-    title : 'Article-one',
-    heading : 'BIO',
-    date : '12 August, 2017',
-    content : `<p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-            <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-             <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>`
-     
- };
+
 
 
 function createTemplate(data){
@@ -57,7 +43,21 @@ var htmlTemplate = `
    `;
    return htmlTemplate;
 }
-var articles = ['articleone'];
+var articles = [ articleone = {
+    title : 'Article-one',
+    heading : 'BIO',
+    date : '12 August, 2017',
+    content : `<p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+            <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>
+             <p>
+                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
+            </p>`
+     
+ }];
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
     res.send(createTemplate(articles[articlename]));
