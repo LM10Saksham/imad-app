@@ -57,17 +57,18 @@ var htmlTemplate = `
    `;
    return htmlTemplate;
 }
+var articles = ['articleone'];
+app.get('/:articlename', function(req, res){
+    var articlename = req.params.articlename;
+    res.send(createTemplate(articles[articlename]));
+});
+
+
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articles = ['articleone'];
-
-app.get('/:articlename', function(req, res){
-    var articlename = req.params.articlename;
-    res.send(createTemplate(articles[articlename]));
-});
 
 var counter =0;
 app.get('/counter', function (req, res) {
