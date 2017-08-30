@@ -11,6 +11,7 @@ var config = {
 };
 var app = express();
 app.use(morgan('combined'));
+
 var articles = { 'article-one' : {
     title : 'Article-one',
     heading : 'BIO',
@@ -26,7 +27,8 @@ var articles = { 'article-one' : {
             </p>`
      
  }};
- function createTemplate(data){
+
+function createTemplate(data){
 var title = data.title;
 var date = data.date;
 var heading = data.heading;
