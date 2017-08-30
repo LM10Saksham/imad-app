@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
- var ArticleOne ={
+ var articleone ={
     title : 'Article-one',
     heading : 'BIO',
     date : '12 August, 2017',
@@ -62,7 +62,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articles = ['ArticleOne'];
+var articles = ['articleone'];
 
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
