@@ -43,7 +43,7 @@ var htmlTemplate = `
    `;
    return htmlTemplate;
 }
-var articles = [ articleone = {
+var articles = { articleone : {
     title : 'Article-one',
     heading : 'BIO',
     date : '12 August, 2017',
@@ -57,7 +57,7 @@ var articles = [ articleone = {
                 Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
             </p>`
      
- }];
+ }};
  
 app.get('/:articlename', function(req, res){
     var articlename = res.params.articlename;
