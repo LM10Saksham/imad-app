@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
 });
 
 
-var Pool = new Pool(config);
+/*var Pool = new Pool(config);
 app.get('/db-test', function (req, res){
     pool.query('SELECT * FROM db-test',function(err, result){
         if(err){
@@ -80,7 +80,7 @@ app.get('/db-test', function (req, res){
             res.send(JSON.stringify(result));
         }
     });
-});
+});*/
 
 app.get('/:articlename', function(req, res){
     var articlename = req.params.articlename;
