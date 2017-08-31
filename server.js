@@ -82,7 +82,7 @@ app.get('/db-test', function (req, res){
 });
 
 app.get('/articles/:articlename', function(req, res){
-    Pool.query("SELECT * FROM article WHERE title = $1" + [req.params.articlename] , function (err,result){
+    Pool.query("SELECT * FROM article WHERE title = $1", [req.params.articlename] , function (err,result){
        if(err){
            res.status(500).send(err.toString());
        } 
