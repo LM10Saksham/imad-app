@@ -11,9 +11,11 @@ var config = {
     port :'5432',
     password : process.env.DB_PASSWORD
 };
+
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
 var articles = { 'article-one' : {
     title : 'Article-one',
     heading : 'BIO',
@@ -29,7 +31,6 @@ var articles = { 'article-one' : {
             </p>`
      
  }};
-
 function createTemplate(data){
 var title = data.title;
 var date = data.date;
@@ -84,7 +85,7 @@ app.get('/hash/:input', function(req,res){
 app.post(('/create-user', function(req,res){
     var username = req.params.username;
     var password = req.params.password;
-    var salt = crypto.randomBytes(120).toStrong('hex');
+    var salt = crypto.randomBytes(120).toString('hex');
     var dbString = hash(password, salt);
     Pool.query('INSERT INTO "User"(username, password)VALUES ($1, $2)', [username, dbString], function(err, result){
         if(err){
