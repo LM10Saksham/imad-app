@@ -69,6 +69,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/hash/:input', function(req,res){
+    var hashedString = hash(req.params.input);
+    res.send(hashedString);
+});
+
+
 var Pool = new Pool(config);
 app.get('/db-test', function (req, res){
     Pool.query("SELECT name FROM category",function(err, result){
