@@ -80,6 +80,21 @@ app.get('/hash/:input', function(req,res){
     res.send(hashedString);
 });
 
+app.post(('/create-user', function(req,res){
+    var username = req.params.username;
+    var password = req.params.password;
+    var salt = crypto.getRandomBytes(120).toStrong('hex');
+    var dbString = hash(password, salt);
+    Pool.query('INSERT INTO "user"(username, password)VALUES ($1, $2)', [username, dbString], function(err, result){
+        if(err){
+            res.status(500).send(err.toString());
+        }
+        else{
+            res.send("user successfully created" + username);
+        } 
+    });
+}));
+
 
 var Pool = new Pool(config);
 app.get('/db-test', function (req, res){
