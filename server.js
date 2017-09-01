@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/hash/:input', function(req,res){
-    var hashedString = hash(req.params.input);
+    var hashedString = hash (req.params.input);
     res.send(hashedString);
 });
 
