@@ -1,36 +1,21 @@
-var express = require('express');
+var express = require('express');    //dependencies
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pg').Pool;
-var crypto = require('crypto');
-var bodyParser = require('body-parser');
+var Pool = require('pg').Pool;      //required for querying and injectiong into database
+var crypto = require('crypto');     //to use the hashing functions
+var bodyParser = require('body-parser');    //To parse the the JSON objexts sent from the GET request into String
 var config = {
     user : 'sakshambarcelona',
     database : 'sakshambarcelona',
     host : 'db.imad.hasura-app.io',
     port :'5432',
     password : process.env.DB_PASSWORD
-};
+};        //To access the databse
 
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-var articles = { 'article-one' : {
-    title : 'Article-one',
-    heading : 'BIO',
-    date : '12 August, 2017',
-    content : `<p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-            <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>
-             <p>
-                Hello, My name is Saksham and I am a wizard. Avada Kedavra !!
-            </p>`
-     
- }};
 function createTemplate(data){
 var title = data.title;
 var date = data.date;
@@ -66,28 +51,28 @@ var htmlTemplate = `
     </body>
    `;
    return htmlTemplate;
-}
+}  //contains the the tempated html code
 
 function hash(input, salt){
- var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+ var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');   //using the pbkdf2Sync fucntion
     return hashed.toString('hex');
-}
+}    // function that performs hashing
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+});  
 
 app.get('/hash/:input', function(req,res){
-    var hashedString = hash (req.params.input, 'this-is-some-random-string');
+    var hashedString = hash (req.params.input, 'this-is-some-random-string');  //The scond parameter is the salt
     res.send(hashedString);
-});
+});    //To check if on a site we can ge the hashed password
 
-app.post('/create-user', function(req,res){
+app.post('/create-user', function(req,res){       //Getting input from the HTTP body
     var username = req.body.username;
     var password = req.body.password;
-    var salt = crypto.randomBytes(128).toString('hex');
-    var dbString = hash(password, salt);
-    Pool.query('INSERT INTO "User"(username, password) VALUES ($1, $2)', [username, dbString], function(err, result){
+    var salt = crypto.randomBytes(128).toString('hex');    //Getting random salt string
+    var dbString = hash(password, salt);    
+    Pool.query('INSERT INTO "User"(username, password) VALUES ($1, $2)', [username, dbString], function(err, result){   //check the way dollar sign has been used
         if(err){
             res.status(500).send(err.toString());
         }
