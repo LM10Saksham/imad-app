@@ -60,6 +60,6 @@ submit.onclick = function(){
         }
     };
         request.open('POST', 'http://sakshambarcelona.imad.hasura-app.io/login', true);
-        request.setRequestHeader('Content-Type', 'applicatoion/JSON');
+        request.setRequestHeader('Content-Type', 'applicatoion/json');
         request.send(JSON.stringify({username : username, password : password}));
 };
