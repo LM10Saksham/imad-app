@@ -67,6 +67,24 @@ app.get('/hash/:input', function(req,res){
     res.send(hashedString);
 });    //To check if on a site we can ge the hashed password
 
+app.post('/login', function(req,res){       //Getting input from the HTTP body
+    var username = req.body.username;
+    var password = req.body.password;
+        
+    Pool.query('SELECT * FROM "User" username = $1', [username], function(err, result){   //check the way dollar sign has been used
+        if(err){
+            res.status(500).send(err.toString());
+        }
+        else{
+            var dbString = result.rows[0].password;
+            var salt = dbString.split('$')[2];
+            res.send("user successfully created" + username);
+        } 
+    });
+});
+
+
+
 app.post('/create-user', function(req,res){       //Getting input from the HTTP body
     var username = req.body.username;
     var password = req.body.password;
