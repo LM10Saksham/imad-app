@@ -43,10 +43,22 @@ submit.onclick = function(){
 var element  = document.getElementById('change');
 element.onclick = function() {
     for(moveRight = 0; moveRight<100; moveRight++){
-        
-    
     element.style.marginLeft = moveRight;
-    
-    }
-    
-}
+    }};
+
+var submit = document.getElementById('submit');
+submit.onclick = function(){
+    var username = document.getElementById('username');
+    var name = username.value;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            if(request.status === 200){
+         res.send("logged in succesfully");
+            }
+        }
+    };
+        request.open('POST', 'http://sakshambarcelona.imad.hasura-app.io/login', true);
+        request.setRequestHeader('Content-Type', 'applicatoion/JSON');
+        request.send(JSON.stringify({username : username, password : password}));
+};
