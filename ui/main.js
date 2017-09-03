@@ -54,7 +54,7 @@ submit.onclick = function(){
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
-         res.send("logged in succesfully");
+         console.log("logged in succesfully");
             }
         }
     };
