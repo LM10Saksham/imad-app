@@ -49,8 +49,8 @@ element.onclick = function() {
 var submit = document.getElementById('submit');
 submit.onclick = function(){
     var username = document.getElementById('username').value;
-  
     var password = document.getElementById('password').value;
+ console.log("meh");
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE){
