@@ -71,7 +71,7 @@ app.post('/login', function(req,res){       //Getting input from the HTTP body
     var username = req.body.username;
     var password = req.body.password;
         
-    Pool.query('SELECT * FROM "User" username = $1', [username], function(err, result){   //check the way dollar sign has been used
+    Pool.query('SELECT * FROM "User" WHERE username = $1', [username], function(err, result){   //check the way dollar sign has been used
         if(err){
             res.status(500).send("Login or password incoorect");
         }
