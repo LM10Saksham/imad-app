@@ -73,11 +73,18 @@ app.post('/login', function(req,res){       //Getting input from the HTTP body
         
     Pool.query('SELECT * FROM "User" username = $1', [username], function(err, result){   //check the way dollar sign has been used
         if(err){
-            res.status(500).send(err.toString());
+            res.status(500).send("Login or password incoorect");
         }
         else{
             var dbString = result.rows[0].password;
             var salt = dbString.split('$')[2];
+            var hashedPassword = hash(password, salt);
+            if(hashedPassword === dbString){
+                res.send("User credentials correct!!");
+            }
+            else{
+                res.status(500).send("Login or password incorrect");
+            }
             res.send("user successfully created" + username);
         } 
     });
