@@ -4,6 +4,9 @@ var path = require('path');
 var Pool = require('pg').Pool;      //required for querying and injectiong into database
 var crypto = require('crypto');     //to use the hashing functions
 var bodyParser = require('body-parser');    //To parse the the JSON objexts sent from the GET request into String
+var session = require('express-session');
+
+
 var config = {
     user : 'sakshambarcelona',
     database : 'sakshambarcelona',
@@ -15,6 +18,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+    secret: 'someRandomSecretValue',
+    cookie : {maxAge : 1000*60*60*24*30}}
+));
 
 function createTemplate(data){
 var title = data.title;
@@ -85,6 +92,10 @@ app.post('/login', function(req,res){       //Getting input from the HTTP body
             else{
                 res.status(500).send("Login or password incorrect");
             }
+            req.session.auth = {userID : result.rows[0].id};
+            
+            
+            
             res.send("user successfully created" + username);
         } 
     });
